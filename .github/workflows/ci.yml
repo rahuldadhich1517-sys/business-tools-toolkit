@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [22.x, 24.x]
 
     steps:
       - name: Checkout repository
@@ -29,11 +29,14 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
+      - name: Build package
+        run: npm run build
+
       - name: Run tests with coverage
         run: npm run test:coverage
 
-      - name: Build package
-        run: npm run build
+      - name: Run E2E tests
+        run: npm run test:e2e
 
       - name: Package pack dry-run
         run: npm pack --dry-run
