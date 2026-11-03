@@ -29,11 +29,11 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Run test suite
-        run: npm run test:run
-
       - name: Build package
         run: npm run build
+
+      - name: Run test suite
+        run: npm run test:run
 
       - name: Set GitHub Packages scope
         run: npm pkg set name=@rahuldadhich1517-sys/business-tools-toolkit
